@@ -6,20 +6,6 @@ using std::vector;
 using std::cin;
 using std::cout;
 
-long long MaxPairwiseProduct(const vector<int>& numbers) {
-    long long result = 0;
-    int n = numbers.size();
-
-    for (int first = 0; first < n; ++first) {
-        for (int second = first + 1; second < n; ++second) {
-          if ((long long)(numbers[first]) * numbers[second] > result){
-            result = ((long long)(numbers[first])) * numbers[second];
-          }
-        }
-    }
-
-    return result;
-}
 
 long long MaxPairwiseProductFast(const vector<int>& numbers){
   int n = numbers.size();
@@ -42,28 +28,6 @@ long long MaxPairwiseProductFast(const vector<int>& numbers){
 }
 
 int main() {
-        while (true) {
-      int n = rand() % 4 + 2;
-
-      cout << n << "\n";
-      vector<int> a;
-      for (int i = 0; i < n; ++i){
-        a.push_back(rand() % 10);
-      }
-      for (int i = 0; i < n; ++i){
-        cout << a[i] << ' ';
-      }
-      cout << "\n";
-      long long res1 = MaxPairwiseProduct(a);
-      long long res2 = MaxPairwiseProductFast(a);
-      if(res1 != res2){
-        cout << "Wrong answer: " << res1 << ' ' << res2 << "\n";
-        break;
-      }
-      else{
-        cout << "OK\n";
-      }
-    }
     int n;
     cin >> n;
     vector<int> numbers(n);
@@ -71,6 +35,6 @@ int main() {
         cin >> numbers[i];
     }
 
-    cout << MaxPairwiseProduct(numbers) << "\n";
+    cout << MaxPairwiseProductFast(numbers) << "\n";
     return 0;
 }
